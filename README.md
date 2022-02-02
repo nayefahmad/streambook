@@ -77,18 +77,63 @@ An example is given in the [notebook](https://nbviewer.jupyter.org/github/srush/
 ## Notes  
 
 - Due to various errors, I had to use matplotlib==3.2.0 and streamlit==1.3.1
-  - See [this](https://stackoverflow.com/a/64417064/6196890) 
-    and [this](https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-streamlit-report-thread/20983).  
+  - See [https://stackoverflow.com/a/64417064/6196890](https://stackoverflow.com/a/64417064/6196890) 
+    and [https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-streamlit-report-thread/20983](https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-streamlit-report-thread/20983).  
 - When running `streambook convert example.py`, I kept getting this error. To fix it
 I had to run `ipython kernel install --name=python3 --user`. 
-  - See [this](https://stackoverflow.com/a/54787570/6196890)
+  - See [https://stackoverflow.com/a/54787570/6196890](https://stackoverflow.com/a/54787570/6196890)
 
 ```
 ValueError: No kernel found that matches the current python executable c:\nayef\streambook\.venv\scripts\python.exe
 Install one with 'python -m ipykernel install --name kernel_name [--user]'
 ```
 - I can't seem to run `streambook convert example.py` without first 
-running `streambook run example.py`(which fails, but creates example.notebook.py)
+running `streambook run example.py`(which fails, but creates example.notebook.py, and then allows 
+the next command to run). 
+
+- Here's the error I get when running `streambook run example.py`: 
+
+```
+Streambook Daemon
+
+Watching directory for changes:
+
+ C:\Nayef\streambook
+
+View Command
+streamlit run --server.runOnSave true C:\Nayef\streambook\example2.streambook.py
+
+Regenerating from C:\Nayef\streambook\example2.py...
+
+Starting Streamlit
+Traceback (most recent call last):
+  File "C:\Users\vr229e\AppData\Local\Continuum\anaconda3\lib\runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "C:\Users\vr229e\AppData\Local\Continuum\anaconda3\lib\runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "C:\Nayef\streambook\.venv\Scripts\streambook.exe\__main__.py", line 7, in <module>
+  File "c:\nayef\streambook\.venv\lib\site-packages\typer\main.py", line 214, in __call__
+    return get_command(self)(*args, **kwargs)
+  File "c:\nayef\streambook\.venv\lib\site-packages\click\core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "c:\nayef\streambook\.venv\lib\site-packages\click\core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "c:\nayef\streambook\.venv\lib\site-packages\click\core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "c:\nayef\streambook\.venv\lib\site-packages\click\core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "c:\nayef\streambook\.venv\lib\site-packages\click\core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "c:\nayef\streambook\.venv\lib\site-packages\typer\main.py", line 500, in wrapper
+    return callback(**use_params)  # type: ignore
+  File "c:\nayef\streambook\.venv\lib\site-packages\streambook\cli.py", line 129, in run
+    file, watch=True, streamlit=streamlit, quiet=quiet, port=port, sections=sections
+  File "c:\nayef\streambook\.venv\lib\site-packages\streambook\cli.py", line 99, in main
+    view_command, capture_output=True,
+  File "C:\Users\vr229e\AppData\Local\Continuum\anaconda3\lib\subprocess.py", line 403, in run
+    with Popen(*popenargs, **kwargs) as process:
+TypeError: __init__() got an unexpected keyword argument 'capture_output'
+```
   
 - Just an FYI: when viewing the output .ipynb in PyCharm, the cell outputs don't show up. But they do in VS Code. 
 
