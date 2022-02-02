@@ -72,3 +72,23 @@ Streamlit's caching API to makes it pretty easy in most use case. See
 https://docs.streamlit.io/en/stable/caching.html for docs. 
 
 An example is given in the [notebook](https://nbviewer.jupyter.org/github/srush/streambook/blob/main/example.notebook.ipynb).
+
+
+## Notes  
+
+- Due to various errors, I had to use matplotlib==3.2.0 and streamlit==1.3.1
+  - See [this](https://stackoverflow.com/a/64417064/6196890) 
+    and [this](https://discuss.streamlit.io/t/modulenotfounderror-no-module-named-streamlit-report-thread/20983).  
+- When running `streambook convert example.py`, I kept getting this error. To fix it
+I had to run `ipython kernel install --name=python3 --user`. 
+  - See [this](https://stackoverflow.com/a/54787570/6196890)
+
+```
+ValueError: No kernel found that matches the current python executable c:\nayef\streambook\.venv\scripts\python.exe
+Install one with 'python -m ipykernel install --name kernel_name [--user]'
+```
+- I can't seem to run `streambook convert example.py` without first 
+running `streambook run example.py`(which fails, but creates example.notebook.py)
+  
+- Outputs of jupyter notebooks aren't saved. Is this how it's supposed to work? 
+  
