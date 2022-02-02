@@ -90,6 +90,6 @@ Install one with 'python -m ipykernel install --name kernel_name [--user]'
 - I can't seem to run `streambook convert example.py` without first 
 running `streambook run example.py`(which fails, but creates example.notebook.py)
   
-- Outputs of jupyter notebooks aren't saved. Is this how it's supposed to work?
+- Just an FYI: when viewing the output .ipynb in PyCharm, the cell outputs don't show up. But they do in VS Code. 
 
   
